@@ -9,41 +9,41 @@ import pandas as pd
 co2_data = pd.read_csv("co2_data.csv", header=0)   # identify the header row
 
 # TODO #2: Use matplotlib to make a line graph
-plt.plot(co2_data['Year'], co2_data['Anomaly'], color='gray')
+plt.plot(co2_data['decimal_year'], co2_data['Average'], color='gray')
 plt.ylabel('Average value')
-plt.xlabel('decimal year')
+plt.xlabel('decimal_year')
 plt.title('Change in Temperatures')
 
 # TODO #3: Plot LOWESS in a line graph
-plt.plot(co2_data['Year'], co2_data['LOWESS'], color='blue')
+# plt.plot(co2_data['decimal_year'], co2_data['#Days'], color='blue')
 plt.show()
 
 # TODO #4: Use matplotlib to make a bar chart
-plt.bar(co2_data['Year'], co2_data['Anomaly'], align='center', color='green')
-plt.ylabel('Temperature Anomalies in Celsius')
-plt.xlabel('Years')
+plt.bar(co2_data['decimal_year'], co2_data['Average'], align='center', color='green')
+plt.ylabel('Average value')
+plt.xlabel('decimal_year')
 plt.title('Change in Temperatures')
 plt.show()
 
 # TODO #5: Calculate min, max, and avg anomaly and the corresponding min/max years
-min_anomaly = co2_data['Anomaly'][0]
-max_anomaly = co2_data['Anomaly'][0]
-min_year = co2_data['Year'][0]
-max_year = co2_data['Year'][0]
-sum_anomaly = 0
-avg_anomaly = 0
+min_average = co2_data['Average'][0]
+max_average = co2_data['Average'][0]
+min_year = co2_data['decimal_year'][0]
+max_year = co2_data['decimal_year'][0]
+sum_average = 0
+avg_average = 0
 # find the min, max and calculate the sum
-for i in range(len(co2_data['Anomaly'])):
-    if (co2_data['Anomaly'][i] < min_anomaly):
-        min_anomaly = co2_data['Anomaly'][i]
-        min_year = co2_data['Year'][i]
-    if (temp_data['Anomaly'][i] > max_anomaly):
-        max_anomaly = temp_data['Anomaly'][i]
-        max_year = temp_data['Year'][i]
-    sum_anomaly += temp_data['Anomaly'][i]
+for i in range(len(co2_data['Average'])):
+    if (co2_data['Average'][i] < min_average):
+        min_anomaly = co2_data['Average'][i]
+        min_year = co2_data['decimal_year'][i]
+    if (co2_data['Average'][i] > max_average):
+        max_anomaly = co2_data['Average'][i]
+        max_year = co2_data['decimal_year'][i]
+    sum_average += co2_data['Average'][i]
 # calculate average
-avg_anomaly = sum_anomaly/len(temp_data['Anomaly'])
+avg_anomaly = sum_average/len(co2_data['Average'])
 # print the statistical values
-print("The maximum anomaly is:", max_anomaly, "which occured in", max_year)
-print("The minimum anomaly is:", min_anomaly, "which occured in", min_year)
-print("The average anomaly is:", avg_anomaly)
+print("The maximum average is:", max_average, "which occured in", max_year)
+print("The minimum average is:", min_average, "which occured in", min_year)
+print("The average average is:", avg_average)
